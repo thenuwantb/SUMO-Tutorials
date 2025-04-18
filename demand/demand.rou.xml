@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- generated on 2025-04-16 14:26:57 by Eclipse SUMO netedit Version 1.22.0
+-->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-<!--    your xml code goes here-->
-	<vType id="Car" accel="2.7" decel="4.5" sigma="0.5"  maxSpeed="70" vClass="passenger"/>
+    <!-- VTypes -->
+    <vType id="Car" vClass="passenger" sigma="0.5" length="5.0" maxSpeed="50.0" guiShape="passenger"/>
+    <vType  id="Bus" vClass="bus" sigma="0.5" length="12.0" maxSpeed="50.0" guiShape="bus"/>
+    
 
-    <route id="route_1" edges="E0 E2"/>
-    <route id="route_2" edges="E1 E2"/>
+    <flow id="car_flow_1" begin="0" end="3600" number="500" from="E1" to="E2" type="Car" color="1,0,0" departLane="free"/>
+    <flow id="car_flow_2" begin="0" end="3600" number="300" from="E0" to="E2" type="Car" color="0,0,1" departLane="free"/>
 
-    <!-- <vehicle id="veh_1" type="Car" route="route_1" depart="10" color="0,1,0"/>
-    <vehicle id="veh_2" type="Car" route="route_2" depart="20" color="0,0,1"/> -->
+    <flow id="bus_flow_1" begin="0" end="3600" number="10" from="E0" to="E2" type="Bus" color="1,1,0" departLane="free">
+        <stop busStop="bs_0" duration="10"/>
+    </flow>
 
-    <flow id="flow_1" begin="50" end="1000" number="500" route="route_1" type="Car" color="0,1,0" departLane="free"/>
-    <flow id="flow_2" begin="200" end="1500" number="600" route="route_2" type="Car" color="0,0,1" departLane="best"/>
-	
+    <flow id="bus_flow_2" begin="0" end="3600" number="10" from="E1" to="E2" type="Bus" color="1,1,0" departLane="free">
+        <stop busStop="bs_0" duration="10"/>
+    </flow>
 </routes>
